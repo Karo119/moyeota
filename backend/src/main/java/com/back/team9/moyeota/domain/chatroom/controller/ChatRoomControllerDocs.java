@@ -19,7 +19,7 @@ public interface ChatRoomControllerDocs {
             description = "채팅방 ID로 전체 메시지 내역을 조회합니다. WebSocket 연결 전 초기 메시지 로드에 사용합니다."
     )
     ResponseEntity<ApiResponse<List<MessageResponse>>> getMessages(
-            @Parameter(description = "조회할 채팅방 ID", required = true) @PathVariable Long chatRoomId
+            @Parameter(description = "조회할 채팅방 ID", required = true, example = "1") @PathVariable Long chatRoomId
     );
 
     @Operation(
@@ -27,6 +27,6 @@ public interface ChatRoomControllerDocs {
             description = "펀딩 ID로 해당 펀딩의 채팅방 정보를 조회합니다."
     )
     ResponseEntity<ApiResponse<ChatRoomResponse>> getChatRoomByFundingId(
-            @Parameter(description = "조회할 펀딩 ID", required = true) @PathVariable Long fundingId
+            @Parameter(description = "조회할 펀딩 ID", required = true, example = "1") @PathVariable Long fundingId
     );
 }

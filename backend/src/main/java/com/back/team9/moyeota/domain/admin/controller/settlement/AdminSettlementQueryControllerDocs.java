@@ -27,6 +27,6 @@ public interface AdminSettlementQueryControllerDocs {
             description = "정산 ID로 특정 정산 건의 상세 정보(총액, 수수료, 페이백 금액 등)를 조회합니다."
     )
     ResponseEntity<ApiResponse<AdminSettlementDetailResponse>> getSettlement(
-            @Parameter(description = "조회할 정산 ID", required = true) @PathVariable Long settlementId
+            @Parameter(description = "조회할 정산 ID", required = true, example = "1") @PathVariable Long settlementId
     );
 }

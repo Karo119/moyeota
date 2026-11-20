@@ -30,7 +30,7 @@ public interface AdminFundingControllerDocs {
             description = "관리자가 특정 펀딩을 강제 취소합니다. 취소 사유를 입력해야 하며, 참여자 전원의 결제가 자동 환불됩니다."
     )
     ResponseEntity<ApiResponse<AdminFundingCancelResponse>> cancelFunding(
-            @Parameter(description = "취소할 펀딩 ID", required = true) @PathVariable Long fundingId,
+            @Parameter(description = "취소할 펀딩 ID", required = true, example = "6") @PathVariable Long fundingId,
             @Valid @RequestBody AdminFundingCancelRequest request
     );
 }

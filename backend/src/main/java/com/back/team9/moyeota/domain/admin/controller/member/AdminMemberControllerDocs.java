@@ -28,7 +28,7 @@ public interface AdminMemberControllerDocs {
             description = "회원 ID로 특정 회원의 상세 정보를 조회합니다."
     )
     ResponseEntity<ApiResponse<AdminMemberDetailResponse>> getMember(
-            @Parameter(description = "조회할 회원 ID", required = true) @PathVariable Long memberId
+            @Parameter(description = "조회할 회원 ID", required = true, example = "2") @PathVariable Long memberId
     );
 
     @Operation(
@@ -36,7 +36,7 @@ public interface AdminMemberControllerDocs {
             description = "관리자가 특정 회원을 강제 탈퇴 처리합니다. 탈퇴 사유를 입력해야 합니다."
     )
     ResponseEntity<ApiResponse<AdminMemberWithdrawResponse>> withdrawMember(
-            @Parameter(description = "탈퇴 처리할 회원 ID", required = true) @PathVariable Long memberId,
+            @Parameter(description = "탈퇴 처리할 회원 ID", required = true, example = "3") @PathVariable Long memberId,
             @Valid @RequestBody AdminMemberWithdrawRequest request
     );
 }

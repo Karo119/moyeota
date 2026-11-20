@@ -18,7 +18,7 @@ public interface SeatControllerDocs {
             description = "노선 ID로 해당 버스의 전체 좌석 배치도와 각 좌석의 선점 상태를 조회합니다."
     )
     ResponseEntity<ApiResponse<SeatLayoutResponse>> getSeatLayout(
-            @Parameter(description = "조회할 노선 ID", required = true) @PathVariable("pathId") Long pathId,
+            @Parameter(description = "조회할 노선 ID", required = true, example = "1") @PathVariable("pathId") Long pathId,
             @Parameter(hidden = true) @AuthenticationPrincipal Long currentMemberId
     );
 
@@ -27,7 +27,7 @@ public interface SeatControllerDocs {
             description = "좌석을 5분간 선점합니다. Redis SET NX EX를 사용하여 동시 선점을 방지합니다. 선점 후 5분 내에 결제를 완료하지 않으면 자동 해제됩니다."
     )
     ResponseEntity<ApiResponse<SeatResponse>> holdSeat(
-            @Parameter(description = "선점할 좌석 ID", required = true) @PathVariable("seatId") Long seatId,
+            @Parameter(description = "선점할 좌석 ID", required = true, example = "2") @PathVariable("seatId") Long seatId,
             @Parameter(hidden = true) @AuthenticationPrincipal Long currentMemberId
     );
 }

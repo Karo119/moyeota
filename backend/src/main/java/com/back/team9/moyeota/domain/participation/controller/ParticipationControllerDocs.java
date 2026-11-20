@@ -34,7 +34,7 @@ public interface ParticipationControllerDocs {
     )
     ResponseEntity<ApiResponse<Void>> cancelParticipation(
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId,
-            @Parameter(description = "취소할 참여 ID", required = true) @PathVariable Long participationId
+            @Parameter(description = "취소할 참여 ID", required = true, example = "5") @PathVariable Long participationId
     );
 
     @Operation(
@@ -43,7 +43,7 @@ public interface ParticipationControllerDocs {
     )
     ResponseEntity<ApiResponse<List<ParticipationListResponse>>> getParticipations(
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId,
-            @Parameter(description = "조회할 펀딩 ID", required = true) @PathVariable Long fundingId
+            @Parameter(description = "조회할 펀딩 ID", required = true, example = "1") @PathVariable Long fundingId
     );
 
     @Operation(

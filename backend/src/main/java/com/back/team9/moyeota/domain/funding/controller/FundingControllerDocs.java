@@ -26,10 +26,10 @@ public interface FundingControllerDocs {
             description = "출발지·도착지·버스 타입·왕복 여부를 기반으로 보증금·잔액 예상 금액을 계산해 반환합니다. 펀딩 생성 전 금액 확인용입니다."
     )
     ResponseEntity<ApiResponse<FundingPricePreviewResponse>> getPricePreview(
-            @Parameter(description = "출발 지역", required = true) @RequestParam Region departureRegion,
-            @Parameter(description = "도착 지역", required = true) @RequestParam Region arrivalRegion,
-            @Parameter(description = "버스 타입", required = true) @RequestParam BusType busType,
-            @Parameter(description = "여행 타입 (편도/왕복)", required = true) @RequestParam TripType tripType
+            @Parameter(description = "출발 지역", required = true, example = "SEOUL") @RequestParam Region departureRegion,
+            @Parameter(description = "도착 지역", required = true, example = "DAEJEON") @RequestParam Region arrivalRegion,
+            @Parameter(description = "버스 타입", required = true, example = "BUS_25") @RequestParam BusType busType,
+            @Parameter(description = "여행 타입 (편도/왕복)", required = true, example = "ONE_WAY") @RequestParam TripType tripType
     );
 
     @Operation(
@@ -47,7 +47,7 @@ public interface FundingControllerDocs {
     )
     ResponseEntity<ApiResponse<FundingDetailResponse>> getFunding(
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId,
-            @Parameter(description = "조회할 펀딩 ID", required = true) @PathVariable Long fundingId
+            @Parameter(description = "조회할 펀딩 ID", required = true, example = "1") @PathVariable Long fundingId
     );
 
     @Operation(
@@ -65,7 +65,7 @@ public interface FundingControllerDocs {
     )
     ResponseEntity<ApiResponse<Void>> updateFunding(
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId,
-            @Parameter(description = "수정할 펀딩 ID", required = true) @PathVariable Long fundingId,
+            @Parameter(description = "수정할 펀딩 ID", required = true, example = "4") @PathVariable Long fundingId,
             @RequestBody @Valid FundingUpdateRequest request
     );
 
@@ -75,6 +75,6 @@ public interface FundingControllerDocs {
     )
     ResponseEntity<ApiResponse<Void>> cancelFunding(
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId,
-            @Parameter(description = "취소할 펀딩 ID", required = true) @PathVariable Long fundingId
+            @Parameter(description = "취소할 펀딩 ID", required = true, example = "5") @PathVariable Long fundingId
     );
 }

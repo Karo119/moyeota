@@ -29,7 +29,7 @@ public interface SettlementControllerDocs {
             description = "방장이 자신의 펀딩에 대한 정산 내역을 조회합니다."
     )
     ResponseEntity<ApiResponse<SettlementResponse>> getByFundingId(
-            @Parameter(description = "조회할 펀딩 ID", required = true) @PathVariable Long fundingId,
+            @Parameter(description = "조회할 펀딩 ID", required = true, example = "3") @PathVariable Long fundingId,
             @Parameter(hidden = true) @AuthenticationPrincipal Long memberId
     );
 }
